@@ -8,24 +8,26 @@
 
 /* Begin PBXBuildFile section */
 		B229D4FD29CCAE94003E11B9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B229D4FC29CCAE94003E11B9 /* AppDelegate.swift */; };
-		B229D4FF29CCAE94003E11B9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B229D4FE29CCAE94003E11B9 /* SceneDelegate.swift */; };
 		B229D50129CCAE94003E11B9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B229D50029CCAE94003E11B9 /* ViewController.swift */; };
 		B229D50429CCAE94003E11B9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B229D50229CCAE94003E11B9 /* Main.storyboard */; };
 		B229D50729CCAE94003E11B9 /* chatTesrApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B229D50529CCAE94003E11B9 /* chatTesrApp.xcdatamodeld */; };
 		B229D50929CCAE96003E11B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B229D50829CCAE96003E11B9 /* Assets.xcassets */; };
 		B229D50C29CCAE96003E11B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B229D50A29CCAE96003E11B9 /* LaunchScreen.storyboard */; };
+		B229D51829CCB093003E11B9 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B229D51729CCB093003E11B9 /* Coordinator.swift */; };
+		B229D51A29CCB0DE003E11B9 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B229D51929CCB0DE003E11B9 /* AppCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		B229D4F929CCAE94003E11B9 /* chatTesrApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = chatTesrApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B229D4FC29CCAE94003E11B9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B229D4FE29CCAE94003E11B9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		B229D50029CCAE94003E11B9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B229D50329CCAE94003E11B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B229D50629CCAE94003E11B9 /* chatTesrApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = chatTesrApp.xcdatamodel; sourceTree = "<group>"; };
 		B229D50829CCAE96003E11B9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B229D50B29CCAE96003E11B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B229D50D29CCAE96003E11B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B229D51729CCB093003E11B9 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		B229D51929CCB0DE003E11B9 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,8 +60,8 @@
 		B229D4FB29CCAE94003E11B9 /* chatTesrApp */ = {
 			isa = PBXGroup;
 			children = (
-				B229D4FC29CCAE94003E11B9 /* AppDelegate.swift */,
-				B229D4FE29CCAE94003E11B9 /* SceneDelegate.swift */,
+				B229D51329CCB005003E11B9 /* Application */,
+				B229D51529CCB032003E11B9 /* Coordinator */,
 				B229D50029CCAE94003E11B9 /* ViewController.swift */,
 				B229D50229CCAE94003E11B9 /* Main.storyboard */,
 				B229D50829CCAE96003E11B9 /* Assets.xcassets */,
@@ -68,6 +70,31 @@
 				B229D50529CCAE94003E11B9 /* chatTesrApp.xcdatamodeld */,
 			);
 			path = chatTesrApp;
+			sourceTree = "<group>";
+		};
+		B229D51329CCB005003E11B9 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				B229D4FC29CCAE94003E11B9 /* AppDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		B229D51529CCB032003E11B9 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				B229D51629CCB040003E11B9 /* Protocols */,
+				B229D51929CCB0DE003E11B9 /* AppCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		B229D51629CCB040003E11B9 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				B229D51729CCB093003E11B9 /* Coordinator.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,9 +168,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B229D51829CCB093003E11B9 /* Coordinator.swift in Sources */,
 				B229D50129CCAE94003E11B9 /* ViewController.swift in Sources */,
+				B229D51A29CCB0DE003E11B9 /* AppCoordinator.swift in Sources */,
 				B229D4FD29CCAE94003E11B9 /* AppDelegate.swift in Sources */,
-				B229D4FF29CCAE94003E11B9 /* SceneDelegate.swift in Sources */,
 				B229D50729CCAE94003E11B9 /* chatTesrApp.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
