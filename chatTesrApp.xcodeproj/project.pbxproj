@@ -8,26 +8,37 @@
 
 /* Begin PBXBuildFile section */
 		B229D4FD29CCAE94003E11B9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B229D4FC29CCAE94003E11B9 /* AppDelegate.swift */; };
-		B229D50129CCAE94003E11B9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B229D50029CCAE94003E11B9 /* ViewController.swift */; };
-		B229D50429CCAE94003E11B9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B229D50229CCAE94003E11B9 /* Main.storyboard */; };
 		B229D50729CCAE94003E11B9 /* chatTesrApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B229D50529CCAE94003E11B9 /* chatTesrApp.xcdatamodeld */; };
 		B229D50929CCAE96003E11B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B229D50829CCAE96003E11B9 /* Assets.xcassets */; };
 		B229D50C29CCAE96003E11B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B229D50A29CCAE96003E11B9 /* LaunchScreen.storyboard */; };
 		B229D51829CCB093003E11B9 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B229D51729CCB093003E11B9 /* Coordinator.swift */; };
 		B229D51A29CCB0DE003E11B9 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B229D51929CCB0DE003E11B9 /* AppCoordinator.swift */; };
+		B229D51F29CCB1CF003E11B9 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B229D51E29CCB1CF003E11B9 /* StorageManager.swift */; };
+		B229D52529CCB520003E11B9 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B229D52429CCB520003E11B9 /* UIColorExtension.swift */; };
+		B229D52729CCB5B6003E11B9 /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = B229D52629CCB5B6003E11B9 /* Resources.swift */; };
+		B229D52929CCB644003E11B9 /* LogInPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B229D52829CCB644003E11B9 /* LogInPageViewController.swift */; };
+		B229D52B29CCB695003E11B9 /* SingInPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B229D52A29CCB695003E11B9 /* SingInPageViewController.swift */; };
+		B2791EEA29CCCCC100C9146A /* UIFontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2791EE929CCCCC100C9146A /* UIFontExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		B229D4F929CCAE94003E11B9 /* chatTesrApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = chatTesrApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B229D4FC29CCAE94003E11B9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B229D50029CCAE94003E11B9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		B229D50329CCAE94003E11B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B229D50629CCAE94003E11B9 /* chatTesrApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = chatTesrApp.xcdatamodel; sourceTree = "<group>"; };
 		B229D50829CCAE96003E11B9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B229D50B29CCAE96003E11B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B229D50D29CCAE96003E11B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B229D51729CCB093003E11B9 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		B229D51929CCB0DE003E11B9 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		B229D51E29CCB1CF003E11B9 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
+		B229D52429CCB520003E11B9 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		B229D52629CCB5B6003E11B9 /* Resources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resources.swift; sourceTree = "<group>"; };
+		B229D52829CCB644003E11B9 /* LogInPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInPageViewController.swift; sourceTree = "<group>"; };
+		B229D52A29CCB695003E11B9 /* SingInPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingInPageViewController.swift; sourceTree = "<group>"; };
+		B2791EE329CCCB7500C9146A /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
+		B2791EE429CCCB7500C9146A /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Thin.ttf"; sourceTree = "<group>"; };
+		B2791EE529CCCB7500C9146A /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
+		B2791EE929CCCCC100C9146A /* UIFontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFontExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,12 +73,10 @@
 			children = (
 				B229D51329CCB005003E11B9 /* Application */,
 				B229D51529CCB032003E11B9 /* Coordinator */,
-				B229D50029CCAE94003E11B9 /* ViewController.swift */,
-				B229D50229CCAE94003E11B9 /* Main.storyboard */,
-				B229D50829CCAE96003E11B9 /* Assets.xcassets */,
-				B229D50A29CCAE96003E11B9 /* LaunchScreen.storyboard */,
-				B229D50D29CCAE96003E11B9 /* Info.plist */,
-				B229D50529CCAE94003E11B9 /* chatTesrApp.xcdatamodeld */,
+				B229D51B29CCB127003E11B9 /* Model */,
+				B229D51D29CCB196003E11B9 /* Storage */,
+				B229D51C29CCB16F003E11B9 /* SupportingFilles */,
+				B229D52029CCB3CE003E11B9 /* View */,
 			);
 			path = chatTesrApp;
 			sourceTree = "<group>";
@@ -95,6 +104,71 @@
 				B229D51729CCB093003E11B9 /* Coordinator.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		B229D51B29CCB127003E11B9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B229D51C29CCB16F003E11B9 /* SupportingFilles */ = {
+			isa = PBXGroup;
+			children = (
+				B229D50829CCAE96003E11B9 /* Assets.xcassets */,
+				B229D50A29CCAE96003E11B9 /* LaunchScreen.storyboard */,
+				B229D50D29CCAE96003E11B9 /* Info.plist */,
+			);
+			path = SupportingFilles;
+			sourceTree = "<group>";
+		};
+		B229D51D29CCB196003E11B9 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				B229D50529CCAE94003E11B9 /* chatTesrApp.xcdatamodeld */,
+				B229D51E29CCB1CF003E11B9 /* StorageManager.swift */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
+		B229D52029CCB3CE003E11B9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B229D52829CCB644003E11B9 /* LogInPageViewController.swift */,
+				B229D52A29CCB695003E11B9 /* SingInPageViewController.swift */,
+				B229D52229CCB4AE003E11B9 /* Helpers */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B229D52229CCB4AE003E11B9 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				B2791ED529CCCAD400C9146A /* Fonts */,
+				B229D52329CCB4C4003E11B9 /* Extensions */,
+				B229D52629CCB5B6003E11B9 /* Resources.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		B229D52329CCB4C4003E11B9 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B229D52429CCB520003E11B9 /* UIColorExtension.swift */,
+				B2791EE929CCCCC100C9146A /* UIFontExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		B2791ED529CCCAD400C9146A /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				B2791EE329CCCB7500C9146A /* Roboto-Bold.ttf */,
+				B2791EE529CCCB7500C9146A /* Roboto-Medium.ttf */,
+				B2791EE429CCCB7500C9146A /* Roboto-Thin.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -157,7 +231,6 @@
 			files = (
 				B229D50C29CCAE96003E11B9 /* LaunchScreen.storyboard in Resources */,
 				B229D50929CCAE96003E11B9 /* Assets.xcassets in Resources */,
-				B229D50429CCAE94003E11B9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -169,24 +242,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				B229D51829CCB093003E11B9 /* Coordinator.swift in Sources */,
-				B229D50129CCAE94003E11B9 /* ViewController.swift in Sources */,
 				B229D51A29CCB0DE003E11B9 /* AppCoordinator.swift in Sources */,
+				B229D52729CCB5B6003E11B9 /* Resources.swift in Sources */,
+				B229D51F29CCB1CF003E11B9 /* StorageManager.swift in Sources */,
 				B229D4FD29CCAE94003E11B9 /* AppDelegate.swift in Sources */,
+				B229D52B29CCB695003E11B9 /* SingInPageViewController.swift in Sources */,
+				B2791EEA29CCCCC100C9146A /* UIFontExtension.swift in Sources */,
+				B229D52929CCB644003E11B9 /* LogInPageViewController.swift in Sources */,
 				B229D50729CCAE94003E11B9 /* chatTesrApp.xcdatamodeld in Sources */,
+				B229D52529CCB520003E11B9 /* UIColorExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		B229D50229CCAE94003E11B9 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B229D50329CCAE94003E11B9 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		B229D50A29CCAE96003E11B9 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -321,10 +391,9 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = LUQ926BAHR;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = chatTesrApp/Info.plist;
+				INFOPLIST_FILE = chatTesrApp/SupportingFilles/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -348,10 +417,9 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = LUQ926BAHR;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = chatTesrApp/Info.plist;
+				INFOPLIST_FILE = chatTesrApp/SupportingFilles/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
