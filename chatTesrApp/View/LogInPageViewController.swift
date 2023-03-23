@@ -41,11 +41,28 @@ final class LogInPageViewController: UIViewController{
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         view.backgroundColor = .white
         
+        buttonLogIn.addTarget(self, action: #selector(loginUser), for: .touchUpInside)
+        
         configure()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    //MARK: - Action
+    @objc func loginUser() {
+        let alertController = UIAlertController(title: "Enter a code", message: nil, preferredStyle: .alert)
+        let confirmAction = UIAlertAction(title: "Add", style: .default) { (_) in
+            if let txtField = alertController.textFields?.first, let text = txtField.text {
+                 print(text)
+            }
+        }
+        alertController.addTextField { (textField) in
+            textField.placeholder = "Cod"
+        }
+        alertController.addAction(confirmAction)
+        self.present(alertController, animated: true, completion: nil)
     }
     
     //MARK: - Configure
