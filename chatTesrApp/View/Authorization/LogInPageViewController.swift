@@ -43,11 +43,40 @@ final class LogInPageViewController: UIViewController{
         
         buttonLogIn.addTarget(self, action: #selector(loginUser), for: .touchUpInside)
         
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(self.keyboardWasShown(notification:)),
+                                               name: UIResponder.keyboardDidShowNotification,
+                                               object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(self.keyboardWasHide(notification:)),
+                                               name: UIResponder.keyboardDidHideNotification,
+                                               object: nil)
+        
         configure()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self);
+    }
+    
+    @objc func keyboardWasShown(notification: NSNotification) {
+        UIView.animate(withDuration: 0.1, animations: { [self] () -> Void in
+            NSLayoutConstraint.activate([
+                buttonLogIn.bottomAnchor.constraint(equalTo: view.bottomAnchor,constant: -340)
+            ])
+        })
+    }
+    
+    @objc func keyboardWasHide(notification: NSNotification) {
+        UIView.animate(withDuration: 0.1, animations: { [self] () -> Void in
+            NSLayoutConstraint.activate([
+                buttonLogIn.bottomAnchor.constraint(equalTo: view.bottomAnchor,constant: -100)
+            ])
+        })
     }
     
     //MARK: - Action
@@ -69,7 +98,7 @@ final class LogInPageViewController: UIViewController{
     private func configure() {
         [textLable,
          textFieldPhoneNumber,
-        buttonLogIn].forEach {
+         buttonLogIn].forEach {
             $0.translatesAutoresizingMaskIntoConstraints = false
             view.addSubview($0)
         }

@@ -51,7 +51,7 @@ final class TabBarController: UITabBarController {
     private func getController(for tab: Tabs) -> UIViewController {
         switch tab {
         case .chats: return ChatsViewController()
-        case .profile: return SignInPageViewController()
+        case .profile: return MainProfileViewController()
         }
     }
 }

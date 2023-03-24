@@ -22,6 +22,7 @@
 		B2767DDA29CD854A0006671E /* ChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2767DD929CD854A0006671E /* ChatCell.swift */; };
 		B2767DDC29CD86660006671E /* Chats.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2767DDB29CD86660006671E /* Chats.swift */; };
 		B2767DDF29CD8F290006671E /* MainChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2767DDE29CD8F290006671E /* MainChatViewController.swift */; };
+		B2767DE329CE05C40006671E /* MainProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2767DE229CE05C40006671E /* MainProfileViewController.swift */; };
 		B2791EEA29CCCCC100C9146A /* UIFontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2791EE929CCCCC100C9146A /* UIFontExtension.swift */; };
 		B2A383A129CCED9A00E7FF43 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A383A029CCED9A00E7FF43 /* TabBarController.swift */; };
 		B2A383A329CCF41300E7FF43 /* NavBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A383A229CCF41300E7FF43 /* NavBarController.swift */; };
@@ -45,6 +46,7 @@
 		B2767DD929CD854A0006671E /* ChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatCell.swift; sourceTree = "<group>"; };
 		B2767DDB29CD86660006671E /* Chats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chats.swift; sourceTree = "<group>"; };
 		B2767DDE29CD8F290006671E /* MainChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainChatViewController.swift; sourceTree = "<group>"; };
+		B2767DE229CE05C40006671E /* MainProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainProfileViewController.swift; sourceTree = "<group>"; };
 		B2791EE329CCCB7500C9146A /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
 		B2791EE429CCCB7500C9146A /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Thin.ttf"; sourceTree = "<group>"; };
 		B2791EE529CCCB7500C9146A /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
@@ -148,13 +150,11 @@
 		B229D52029CCB3CE003E11B9 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				B2767DDD29CD8F0E0006671E /* New Group */,
+				B2767DDD29CD8F0E0006671E /* AllChats */,
 				B2767DD629CD82460006671E /* Navigation */,
 				B2767DD529CD81CA0006671E /* Authorization */,
 				B229D52229CCB4AE003E11B9 /* Helpers */,
-				B2767DD729CD82750006671E /* ChatsViewController.swift */,
-				B2767DD929CD854A0006671E /* ChatCell.swift */,
-				B2767DDE29CD8F290006671E /* MainChatViewController.swift */,
+				B2767DE229CE05C40006671E /* MainProfileViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -196,11 +196,14 @@
 			path = Navigation;
 			sourceTree = "<group>";
 		};
-		B2767DDD29CD8F0E0006671E /* New Group */ = {
+		B2767DDD29CD8F0E0006671E /* AllChats */ = {
 			isa = PBXGroup;
 			children = (
+				B2767DD729CD82750006671E /* ChatsViewController.swift */,
+				B2767DD929CD854A0006671E /* ChatCell.swift */,
+				B2767DDE29CD8F290006671E /* MainChatViewController.swift */,
 			);
-			path = "New Group";
+			path = AllChats;
 			sourceTree = "<group>";
 		};
 		B2791ED529CCCAD400C9146A /* Fonts */ = {
@@ -296,6 +299,7 @@
 				B229D52929CCB644003E11B9 /* LogInPageViewController.swift in Sources */,
 				B2767DDF29CD8F290006671E /* MainChatViewController.swift in Sources */,
 				B229D50729CCAE94003E11B9 /* chatTesrApp.xcdatamodeld in Sources */,
+				B2767DE329CE05C40006671E /* MainProfileViewController.swift in Sources */,
 				B2767DDA29CD854A0006671E /* ChatCell.swift in Sources */,
 				B229D52529CCB520003E11B9 /* UIColorExtension.swift in Sources */,
 				B2767DDC29CD86660006671E /* Chats.swift in Sources */,

@@ -42,12 +42,12 @@ final class MainChatViewController: UIViewController {
     }()
     
     let textFieldMessage: UITextField = {
-       let textField = UITextField()
+        let textField = UITextField()
         textField.textAlignment = .left
         textField.layer.cornerRadius = 15
         textField.layer.borderWidth = 0.2
         textField.backgroundColor = Resouces.Colors.textFieldColorbg
-        textField.attributedPlaceholder = NSAttributedString(string: "message",
+        textField.attributedPlaceholder = NSAttributedString(string: "  message",
                                                              attributes: [.foregroundColor: Resouces.Colors.textFieldColorText])
         return textField
     }()
@@ -62,7 +62,7 @@ final class MainChatViewController: UIViewController {
         button.setTitleColor(Resouces.Colors.btnColor, for: .normal)
         return button
     }()
-        
+    
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         view.backgroundColor = Resouces.Colors.active
@@ -73,7 +73,7 @@ final class MainChatViewController: UIViewController {
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(self.keyboardWasShown(notification:)),
                                                name: UIResponder.keyboardWillChangeFrameNotification,
-               object: nil)
+                                               object: nil)
     }
     
     required init?(coder: NSCoder) {
@@ -99,8 +99,9 @@ final class MainChatViewController: UIViewController {
          lableMessageTwo,
          lableMessageFour,
          lableMessageThree,
-         buttonPushMessage, textFieldMessage
-         ].forEach {
+         buttonPushMessage,
+         textFieldMessage
+        ].forEach {
             $0.translatesAutoresizingMaskIntoConstraints = false
             view.addSubview($0)
         }
@@ -111,10 +112,10 @@ final class MainChatViewController: UIViewController {
             
             lableMessageTwo.topAnchor.constraint(equalTo: lableMessageOne.bottomAnchor, constant: 7),
             lableMessageTwo.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -5),
-
+            
             lableMessageThree.topAnchor.constraint(equalTo: lableMessageTwo.bottomAnchor, constant: 7),
             lableMessageThree.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 5),
-
+            
             lableMessageFour.topAnchor.constraint(equalTo: lableMessageThree.bottomAnchor, constant: 7),
             lableMessageFour.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -5),
             
@@ -122,7 +123,7 @@ final class MainChatViewController: UIViewController {
             textFieldMessage.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -30),
             textFieldMessage.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 5),
             textFieldMessage.trailingAnchor.constraint(equalTo: buttonPushMessage.leadingAnchor),
-
+            
             buttonPushMessage.heightAnchor.constraint(equalToConstant: 40),
             buttonPushMessage.widthAnchor.constraint(equalToConstant: 40),
             buttonPushMessage.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -30),
