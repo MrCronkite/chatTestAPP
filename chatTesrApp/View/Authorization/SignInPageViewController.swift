@@ -9,6 +9,7 @@ import UIKit
 
 final class SignInPageViewController: UIViewController{
     
+    var window = UIWindow()
     weak var coordinator: AppCoordinator?
     
     let textLable: UILabel = {
@@ -123,6 +124,9 @@ final class SignInPageViewController: UIViewController{
             textFieldFirstName.backgroundColor = Resouces.Colors.textFieldColorbg
             textFieldLastName.backgroundColor = Resouces.Colors.textFieldColorbg
             textFieldPhoneNumber.backgroundColor = Resouces.Colors.textFieldColorbg
+            let vc = TabBarController()
+            vc.modalPresentationStyle = .fullScreen
+            present(vc, animated: true)
         }
     }
     

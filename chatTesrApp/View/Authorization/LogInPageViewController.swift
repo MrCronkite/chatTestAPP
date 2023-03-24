@@ -55,7 +55,7 @@ final class LogInPageViewController: UIViewController{
         let alertController = UIAlertController(title: "Enter a code", message: nil, preferredStyle: .alert)
         let confirmAction = UIAlertAction(title: "Add", style: .default) { (_) in
             if let txtField = alertController.textFields?.first, let text = txtField.text {
-                 print(text)
+                self.coordinator?.start(code: Int(text) ?? 1)
             }
         }
         alertController.addTextField { (textField) in

@@ -8,6 +8,7 @@
 import UIKit
 
 final class AppCoordinator: Coordinator {
+    
     var navigationController: UINavigationController
     
     weak var coordinator: AppCoordinator?
@@ -16,15 +17,26 @@ final class AppCoordinator: Coordinator {
         self.navigationController = navigationController
     }
     
-    func start() {
+    func start(code: Int) {
+        
         let vc = SignInPageViewController()
         vc.coordinator = self
-        navigationController.pushViewController(vc, animated: false)
+        if code == 1 {
+            navigationController.pushViewController(vc, animated: false)
+        } else {
+            openTabBar()
+        }
     }
     
     func openLoginPage() {
         let vc = LogInPageViewController()
         vc.coordinator = self
         navigationController.pushViewController(vc, animated: true)
+    }
+    
+    func openTabBar() {
+        let tabBar = TabBarController()
+        tabBar.coordinator = self
+        navigationController.pushViewController(tabBar, animated: false)
     }
 }

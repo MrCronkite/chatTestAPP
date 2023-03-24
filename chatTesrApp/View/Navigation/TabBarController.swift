@@ -13,6 +13,8 @@ enum Tabs: Int, CaseIterable {
 }
 
 final class TabBarController: UITabBarController {
+    
+    weak var coordinator: AppCoordinator?
 
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)

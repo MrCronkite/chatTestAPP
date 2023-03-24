@@ -76,7 +76,7 @@ extension ChatsViewController: UITableViewDataSource {
 
 extension ChatsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        present(MainChatViewController(), animated: true)
+        self.navigationController?.pushViewController(MainChatViewController(), animated: true)
     }
 }
 
