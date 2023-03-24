@@ -18,10 +18,12 @@
 		B229D52729CCB5B6003E11B9 /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = B229D52629CCB5B6003E11B9 /* Resources.swift */; };
 		B229D52929CCB644003E11B9 /* LogInPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B229D52829CCB644003E11B9 /* LogInPageViewController.swift */; };
 		B229D52B29CCB695003E11B9 /* SignInPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B229D52A29CCB695003E11B9 /* SignInPageViewController.swift */; };
+		B2767DD829CD82750006671E /* ChatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2767DD729CD82750006671E /* ChatsViewController.swift */; };
+		B2767DDA29CD854A0006671E /* ChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2767DD929CD854A0006671E /* ChatCell.swift */; };
+		B2767DDC29CD86660006671E /* Chats.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2767DDB29CD86660006671E /* Chats.swift */; };
 		B2791EEA29CCCCC100C9146A /* UIFontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2791EE929CCCCC100C9146A /* UIFontExtension.swift */; };
 		B2A383A129CCED9A00E7FF43 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A383A029CCED9A00E7FF43 /* TabBarController.swift */; };
 		B2A383A329CCF41300E7FF43 /* NavBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A383A229CCF41300E7FF43 /* NavBarController.swift */; };
-		B2A383A529CCF67D00E7FF43 /* WABaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A383A429CCF67D00E7FF43 /* WABaseController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,13 +40,15 @@
 		B229D52629CCB5B6003E11B9 /* Resources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resources.swift; sourceTree = "<group>"; };
 		B229D52829CCB644003E11B9 /* LogInPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInPageViewController.swift; sourceTree = "<group>"; };
 		B229D52A29CCB695003E11B9 /* SignInPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInPageViewController.swift; sourceTree = "<group>"; };
+		B2767DD729CD82750006671E /* ChatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsViewController.swift; sourceTree = "<group>"; };
+		B2767DD929CD854A0006671E /* ChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatCell.swift; sourceTree = "<group>"; };
+		B2767DDB29CD86660006671E /* Chats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chats.swift; sourceTree = "<group>"; };
 		B2791EE329CCCB7500C9146A /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
 		B2791EE429CCCB7500C9146A /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Thin.ttf"; sourceTree = "<group>"; };
 		B2791EE529CCCB7500C9146A /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
 		B2791EE929CCCCC100C9146A /* UIFontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFontExtension.swift; sourceTree = "<group>"; };
 		B2A383A029CCED9A00E7FF43 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		B2A383A229CCF41300E7FF43 /* NavBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavBarController.swift; sourceTree = "<group>"; };
-		B2A383A429CCF67D00E7FF43 /* WABaseController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WABaseController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +119,7 @@
 		B229D51B29CCB127003E11B9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B2767DDB29CD86660006671E /* Chats.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -141,12 +146,11 @@
 		B229D52029CCB3CE003E11B9 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				B2A383A029CCED9A00E7FF43 /* TabBarController.swift */,
-				B2A383A429CCF67D00E7FF43 /* WABaseController.swift */,
-				B2A383A229CCF41300E7FF43 /* NavBarController.swift */,
-				B229D52829CCB644003E11B9 /* LogInPageViewController.swift */,
-				B229D52A29CCB695003E11B9 /* SignInPageViewController.swift */,
+				B2767DD629CD82460006671E /* Navigation */,
+				B2767DD529CD81CA0006671E /* Authorization */,
 				B229D52229CCB4AE003E11B9 /* Helpers */,
+				B2767DD729CD82750006671E /* ChatsViewController.swift */,
+				B2767DD929CD854A0006671E /* ChatCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -168,6 +172,24 @@
 				B2791EE929CCCCC100C9146A /* UIFontExtension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		B2767DD529CD81CA0006671E /* Authorization */ = {
+			isa = PBXGroup;
+			children = (
+				B229D52829CCB644003E11B9 /* LogInPageViewController.swift */,
+				B229D52A29CCB695003E11B9 /* SignInPageViewController.swift */,
+			);
+			path = Authorization;
+			sourceTree = "<group>";
+		};
+		B2767DD629CD82460006671E /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				B2A383A029CCED9A00E7FF43 /* TabBarController.swift */,
+				B2A383A229CCF41300E7FF43 /* NavBarController.swift */,
+			);
+			path = Navigation;
 			sourceTree = "<group>";
 		};
 		B2791ED529CCCAD400C9146A /* Fonts */ = {
@@ -254,15 +276,17 @@
 				B229D51A29CCB0DE003E11B9 /* AppCoordinator.swift in Sources */,
 				B2A383A129CCED9A00E7FF43 /* TabBarController.swift in Sources */,
 				B229D52729CCB5B6003E11B9 /* Resources.swift in Sources */,
+				B2767DD829CD82750006671E /* ChatsViewController.swift in Sources */,
 				B229D51F29CCB1CF003E11B9 /* StorageManager.swift in Sources */,
 				B229D4FD29CCAE94003E11B9 /* AppDelegate.swift in Sources */,
 				B229D52B29CCB695003E11B9 /* SignInPageViewController.swift in Sources */,
 				B2A383A329CCF41300E7FF43 /* NavBarController.swift in Sources */,
-				B2A383A529CCF67D00E7FF43 /* WABaseController.swift in Sources */,
 				B2791EEA29CCCCC100C9146A /* UIFontExtension.swift in Sources */,
 				B229D52929CCB644003E11B9 /* LogInPageViewController.swift in Sources */,
 				B229D50729CCAE94003E11B9 /* chatTesrApp.xcdatamodeld in Sources */,
+				B2767DDA29CD854A0006671E /* ChatCell.swift in Sources */,
 				B229D52529CCB520003E11B9 /* UIColorExtension.swift in Sources */,
+				B2767DDC29CD86660006671E /* Chats.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

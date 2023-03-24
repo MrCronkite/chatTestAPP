@@ -27,11 +27,13 @@ final class TabBarController: UITabBarController {
     }
 
     private func configureAppearance() {
-        tabBar.tintColor = Resouces.Colors.btnColor
-        tabBar.barTintColor = Resouces.Colors.subText
-        tabBar.backgroundColor = .white
-        tabBar.layer.cornerRadius = 10
+        tabBar.tintColor = Resouces.Colors.text
+        tabBar.barTintColor = Resouces.Colors.active
+        tabBar.backgroundColor = Resouces.Colors.active
+        tabBar.layer.cornerRadius = 25
         tabBar.layer.masksToBounds = true
+        tabBar.layer.borderWidth = 0.2
+        tabBar.layer.borderColor = Resouces.Colors.text.cgColor
 
         let controllers: [NavBarController] = Tabs.allCases.map { tab in
             let controller = NavBarController(rootViewController: getController(for: tab))
@@ -46,7 +48,7 @@ final class TabBarController: UITabBarController {
 
     private func getController(for tab: Tabs) -> UIViewController {
         switch tab {
-        case .chats: return LogInPageViewController()
+        case .chats: return ChatsViewController()
         case .profile: return SignInPageViewController()
         }
     }
