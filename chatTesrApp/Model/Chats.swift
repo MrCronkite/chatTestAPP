@@ -30,7 +30,7 @@ struct Description {
 }
 
 struct Source {
-    static func makeContacts() -> [Chats] {
+    static func makeChats() -> [Chats] {
         [
             .init(name: "Bob", description: Description.descriptionBuisiness, interests: .business),
             .init(name: "Alex", description: Description.descriptionBuisiness, interests: .business),
@@ -50,8 +50,8 @@ struct Source {
     }
     
     static func makeContactsWithGroup() -> [[Chats]] {
-        let male = makeContacts().filter {$0.interests == .business}
-        let female = makeContacts().filter {$0.interests == .entertainment}
+        let male = makeChats().filter {$0.interests == .business}
+        let female = makeChats().filter {$0.interests == .entertainment}
         return [male, female]
     }
 }

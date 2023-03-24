@@ -10,7 +10,6 @@ import UIKit
 final class AppCoordinator: Coordinator {
     var navigationController: UINavigationController
     
-    
     weak var coordinator: AppCoordinator?
     
     init(navigationController: UINavigationController) {

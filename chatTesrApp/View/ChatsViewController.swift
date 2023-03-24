@@ -54,7 +54,6 @@ extension ChatsViewController: UITableViewDataSource {
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "ChatCell", for: indexPath) as? ChatCell else { fatalError() }
             
-            //cell.config(contact: contats[indexPath.row])
             cell.config(contact: contats[indexPath.section][indexPath.row])
             
             return cell
@@ -77,7 +76,7 @@ extension ChatsViewController: UITableViewDataSource {
 
 extension ChatsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath.row)
+        present(MainChatViewController(), animated: true)
     }
 }
 
