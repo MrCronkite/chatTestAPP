@@ -124,13 +124,13 @@ final class SignInPageViewController: UIViewController{
             textFieldFirstName.backgroundColor = Resouces.Colors.textFieldColorbg
             textFieldLastName.backgroundColor = Resouces.Colors.textFieldColorbg
             textFieldPhoneNumber.backgroundColor = Resouces.Colors.textFieldColorbg
-            let vc = TabBarController()
-            vc.modalPresentationStyle = .fullScreen
-            present(vc, animated: true)
+            let tabBar = TabBarController()
+            tabBar.modalPresentationStyle = .fullScreen
+            present(tabBar, animated: true)
         }
     }
     
-    func alertMessage(title: String, message: String) {
+   private func alertMessage(title: String, message: String) {
         let alert = UIAlertController(title: title,
                                       message: message,
                                       preferredStyle: .alert)

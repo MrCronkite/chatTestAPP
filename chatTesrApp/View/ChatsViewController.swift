@@ -76,7 +76,11 @@ extension ChatsViewController: UITableViewDataSource {
 
 extension ChatsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.navigationController?.pushViewController(MainChatViewController(), animated: true)
+        let chatVC = MainChatViewController()
+        chatVC.title = contats[indexPath.section][indexPath.row].name
+        chatVC.modalPresentationStyle = .fullScreen
+        chatVC.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(chatVC, animated: true)
     }
 }
 
