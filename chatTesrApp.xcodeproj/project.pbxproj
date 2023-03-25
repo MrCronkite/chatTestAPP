@@ -27,6 +27,7 @@
 		B2A383A129CCED9A00E7FF43 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A383A029CCED9A00E7FF43 /* TabBarController.swift */; };
 		B2A383A329CCF41300E7FF43 /* NavBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A383A229CCF41300E7FF43 /* NavBarController.swift */; };
 		B2FB041529CF6CD30047D539 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FB041429CF6CD30047D539 /* NetworkService.swift */; };
+		B2FB041729CF89600047D539 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FB041629CF89600047D539 /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +56,7 @@
 		B2A383A029CCED9A00E7FF43 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		B2A383A229CCF41300E7FF43 /* NavBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavBarController.swift; sourceTree = "<group>"; };
 		B2FB041429CF6CD30047D539 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		B2FB041629CF89600047D539 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				B2767DDB29CD86660006671E /* Chats.swift */,
+				B2FB041629CF89600047D539 /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -315,6 +318,7 @@
 				B2767DDA29CD854A0006671E /* ChatCell.swift in Sources */,
 				B229D52529CCB520003E11B9 /* UIColorExtension.swift in Sources */,
 				B2767DDC29CD86660006671E /* Chats.swift in Sources */,
+				B2FB041729CF89600047D539 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

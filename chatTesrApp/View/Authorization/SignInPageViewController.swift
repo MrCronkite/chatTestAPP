@@ -9,8 +9,8 @@ import UIKit
 
 final class SignInPageViewController: UIViewController{
     
-    var window = UIWindow()
     weak var coordinator: AppCoordinator?
+    var network = NetworkManger()
     
     let textLable: UILabel = {
         let lable = UILabel()
@@ -124,6 +124,9 @@ final class SignInPageViewController: UIViewController{
             textFieldFirstName.backgroundColor = Resouces.Colors.textFieldColorbg
             textFieldLastName.backgroundColor = Resouces.Colors.textFieldColorbg
             textFieldPhoneNumber.backgroundColor = Resouces.Colors.textFieldColorbg
+            network.postRegister(phoneNumber: "+37522",
+                                 name: "vlad",
+                                 username: "Vlad23")
             let tabBar = TabBarController()
             tabBar.modalPresentationStyle = .fullScreen
             present(tabBar, animated: true)

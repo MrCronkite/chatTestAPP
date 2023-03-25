@@ -21,6 +21,7 @@ final class NetworkManger: NetworkProtocol {
     public enum Urls {
         static var checkAuthCode = "https://plannerok.ru/api/v1/users/check-auth-code/"
         static var sendAuthCode = "https://plannerok.ru/api/v1/users/send-auth-code/"
+        static var register = "https://plannerok.ru/api/v1/users/register/"
     }
     
     func postPhoneCode(phoneNumber: String) {
@@ -34,14 +35,6 @@ final class NetworkManger: NetworkProtocol {
         do{
             request.httpBody = try JSONSerialization.data(withJSONObject: params as Any, options: JSONSerialization.WritingOptions())
             let task = session.dataTask(with: request as URLRequest as URLRequest, completionHandler: {(data, response, error) in
-                if let response = response {
-                    let nsHTTPResponse = response as! HTTPURLResponse
-                    let statusCode = nsHTTPResponse.statusCode
-                    print ("status code = \(statusCode)")
-                }
-                if let error = error {
-                    print ("\(error)")
-                }
                 if let data = data {
                     do{
                         let jsonResponse = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions())
@@ -69,14 +62,6 @@ final class NetworkManger: NetworkProtocol {
         do{
             request.httpBody = try JSONSerialization.data(withJSONObject: params as Any, options: JSONSerialization.WritingOptions())
             let task = session.dataTask(with: request as URLRequest as URLRequest, completionHandler: {(data, response, error) in
-                if let response = response {
-                    let nsHTTPResponse = response as! HTTPURLResponse
-                    let statusCode = nsHTTPResponse.statusCode
-                    print ("status code = \(statusCode)")
-                }
-                if let error = error {
-                    print ("\(error)")
-                }
                 if let data = data {
                     do{
                         let jsonResponse = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions())
@@ -93,11 +78,35 @@ final class NetworkManger: NetworkProtocol {
     }
     
     func postRegister(phoneNumber: String, name: String, username: String) {
-        <#code#>
+        let session = URLSession.shared
+        let url = Urls.register
+        let request = NSMutableURLRequest(url: NSURL(string: url)! as URL)
+        request.httpMethod = "POST"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        var params :[String: Any]?
+        params = [  "phone": phoneNumber,
+                    "name": name,
+                    "username": username]
+        do{
+            request.httpBody = try JSONSerialization.data(withJSONObject: params as Any, options: JSONSerialization.WritingOptions())
+            let task = session.dataTask(with: request as URLRequest as URLRequest, completionHandler: {(data, response, error) in
+                if let data = data {
+                    do{
+                        let jsonResponse = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions())
+                        print ("data = \(jsonResponse)")
+                    }catch _ {
+                        print ("OOps not good JSON formatted response")
+                    }
+                }
+            })
+            task.resume()
+        }catch _ {
+            print ("Oops something happened buddy")
+        }
     }
     
     func getUser() {
-        <#code#>
+        print("sdfsd")
     }
     
 }
