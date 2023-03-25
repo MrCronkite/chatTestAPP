@@ -44,6 +44,30 @@ final class MainProfileViewController: UIViewController{
         return text
     }()
     
+    let lableCityName: UILabel = {
+        let text = UILabel()
+        text.textColor = Resouces.Colors.text
+        text.text = "NewYork"
+        text.font = .robotoRegular(size: 20)
+        return text
+    }()
+    
+    let lableDateOfBirth: UILabel = {
+        let text = UILabel()
+        text.textColor = Resouces.Colors.text
+        text.text = "1999.02.03"
+        text.font = .robotoRegular(size: 16)
+        return text
+    }()
+    
+    let buttonChangeData: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = Resouces.Colors.btnColor
+        button.setTitle("Edit profile", for: .normal)
+        button.layer.cornerRadius = 15
+        return button
+    }()
+    
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         view.backgroundColor = .white
@@ -61,7 +85,7 @@ final class MainProfileViewController: UIViewController{
         [imageAvatarView,
          lablePhoneNumber,
          lableUsername,
-         lableName
+         lableName, lableCityName, lableDateOfBirth, buttonChangeData
         ].forEach {
             $0.translatesAutoresizingMaskIntoConstraints = false
             view.addSubview($0)
@@ -80,8 +104,18 @@ final class MainProfileViewController: UIViewController{
             lableUsername.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
             lableName.topAnchor.constraint(equalTo: lableUsername.bottomAnchor, constant: 10),
-            lableName.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+            lableName.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
+            lableCityName.topAnchor.constraint(equalTo: lableName.bottomAnchor, constant: 20),
+            lableCityName.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
+            
+            lableDateOfBirth.topAnchor.constraint(equalTo: lableCityName.bottomAnchor, constant: 5),
+            lableDateOfBirth.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
+            
+            buttonChangeData.widthAnchor.constraint(equalToConstant: 290),
+            buttonChangeData.heightAnchor.constraint(equalToConstant: 46),
+            buttonChangeData.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -100),
+            buttonChangeData.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
     }
 }

@@ -26,6 +26,7 @@
 		B2791EEA29CCCCC100C9146A /* UIFontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2791EE929CCCCC100C9146A /* UIFontExtension.swift */; };
 		B2A383A129CCED9A00E7FF43 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A383A029CCED9A00E7FF43 /* TabBarController.swift */; };
 		B2A383A329CCF41300E7FF43 /* NavBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A383A229CCF41300E7FF43 /* NavBarController.swift */; };
+		B2FB041529CF6CD30047D539 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FB041429CF6CD30047D539 /* NetworkService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +54,7 @@
 		B2791EE929CCCCC100C9146A /* UIFontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFontExtension.swift; sourceTree = "<group>"; };
 		B2A383A029CCED9A00E7FF43 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		B2A383A229CCF41300E7FF43 /* NavBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavBarController.swift; sourceTree = "<group>"; };
+		B2FB041429CF6CD30047D539 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 		B229D4FB29CCAE94003E11B9 /* chatTesrApp */ = {
 			isa = PBXGroup;
 			children = (
+				B2FB041329CF6C240047D539 /* NetworkService */,
 				B229D51329CCB005003E11B9 /* Application */,
 				B229D51529CCB032003E11B9 /* Coordinator */,
 				B229D51B29CCB127003E11B9 /* Model */,
@@ -216,6 +219,14 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		B2FB041329CF6C240047D539 /* NetworkService */ = {
+			isa = PBXGroup;
+			children = (
+				B2FB041429CF6CD30047D539 /* NetworkService.swift */,
+			);
+			path = NetworkService;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -290,6 +301,7 @@
 				B229D51A29CCB0DE003E11B9 /* AppCoordinator.swift in Sources */,
 				B2A383A129CCED9A00E7FF43 /* TabBarController.swift in Sources */,
 				B229D52729CCB5B6003E11B9 /* Resources.swift in Sources */,
+				B2FB041529CF6CD30047D539 /* NetworkService.swift in Sources */,
 				B2767DD829CD82750006671E /* ChatsViewController.swift in Sources */,
 				B229D51F29CCB1CF003E11B9 /* StorageManager.swift in Sources */,
 				B229D4FD29CCAE94003E11B9 /* AppDelegate.swift in Sources */,
