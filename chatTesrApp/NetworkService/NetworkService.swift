@@ -12,7 +12,10 @@ protocol NetworkProtocol {
     func postCheckCode(phoneNumber: String, code: Int)
     func postRegister(phoneNumber: String, name: String, username: String)
     
-    func getUser()
+    func getUserData()
+    func getTokenData()
+    
+    func putUserData()
     
 }
 
@@ -22,9 +25,12 @@ final class NetworkManger: NetworkProtocol {
         static var checkAuthCode = "https://plannerok.ru/api/v1/users/check-auth-code/"
         static var sendAuthCode = "https://plannerok.ru/api/v1/users/send-auth-code/"
         static var register = "https://plannerok.ru/api/v1/users/register/"
+        static var getUser = "https://plannerok.ru/api/v1/users/me/"
+        static var getToken = "https://plannerok.ru/api/v1/users/refresh-token/"
+        static var putUserData = "https://plannerok.ru/api/v1/users/me/"
     }
     
-    func postPhoneCode(phoneNumber: String) {
+    public func postPhoneCode(phoneNumber: String) {
         let session = URLSession.shared
         let url = Urls.sendAuthCode
         let request = NSMutableURLRequest(url: NSURL(string: url)! as URL)
@@ -50,7 +56,7 @@ final class NetworkManger: NetworkProtocol {
         }
     }
     
-    func postCheckCode(phoneNumber: String, code: Int) {
+    public func postCheckCode(phoneNumber: String, code: Int) {
         let session = URLSession.shared
         let url = Urls.checkAuthCode
         let request = NSMutableURLRequest(url: NSURL(string: url)! as URL)
@@ -73,11 +79,11 @@ final class NetworkManger: NetworkProtocol {
             })
             task.resume()
         }catch _ {
-            print ("Oops something happened buddy")
+            
         }
     }
     
-    func postRegister(phoneNumber: String, name: String, username: String) {
+    public func postRegister(phoneNumber: String, name: String, username: String) {
         let session = URLSession.shared
         let url = Urls.register
         let request = NSMutableURLRequest(url: NSURL(string: url)! as URL)
@@ -105,8 +111,16 @@ final class NetworkManger: NetworkProtocol {
         }
     }
     
-    func getUser() {
+    public func getUserData() {
         print("sdfsd")
+    }
+    
+    public func getTokenData() {
+        print("sdsd")
+    }
+    
+    public func putUserData() {
+        print("sdsd")
     }
     
 }
