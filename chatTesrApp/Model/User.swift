@@ -62,3 +62,15 @@ struct RegistredUser: Codable {
         case userID = "user_id"
     }
 }
+
+// MARK: - Token
+struct Token: Codable {
+    let refreshToken, accessToken: String
+    let userID: Int
+
+    enum CodingKeys: String, CodingKey {
+        case refreshToken = "refresh_token"
+        case accessToken = "access_token"
+        case userID = "user_id"
+    }
+}
