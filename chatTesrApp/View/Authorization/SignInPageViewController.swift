@@ -10,7 +10,6 @@ import UIKit
 final class SignInPageViewController: UIViewController{
     
     weak var coordinator: AppCoordinator?
-    var network = NetworkManger()
     
     let textLable: UILabel = {
         let lable = UILabel()
@@ -124,12 +123,16 @@ final class SignInPageViewController: UIViewController{
             textFieldName.backgroundColor = Resouces.Colors.textFieldColorbg
             textFieldUsername.backgroundColor = Resouces.Colors.textFieldColorbg
             textFieldPhoneNumber.backgroundColor = Resouces.Colors.textFieldColorbg
-            network.postRegister(phoneNumber: textFieldPhoneNumber.text!,
-                                 name: textFieldName.text!,
-                                 username: textFieldUsername.text!)
-            let tabBar = TabBarController()
-            tabBar.modalPresentationStyle = .fullScreen
-            present(tabBar, animated: true)
+            NetworkManager.shared.restredUser(name: textFieldName.text!,
+                                              username: textFieldUsername.text!,
+                                              phoneNumber: textFieldPhoneNumber.text!) { user in
+                if (user.userID != 0) {
+                    print(user.accessToken)
+//                    let tabBar = TabBarController()
+//                    tabBar.modalPresentationStyle = .fullScreen
+//                    self.present(tabBar, animated: true)
+                }
+            }
         }
     }
     

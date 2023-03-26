@@ -55,7 +55,7 @@ class NetworkManager {
     static let shared = NetworkManager()
     
     public func restredUser(name: String, username: String, phoneNumber: String, completion: @escaping (RegistredUser) -> Void) {
-        var params = ["phone": phoneNumber, "name": name, "username": username]
+        let params = ["phone": phoneNumber, "name": name, "username": username]
         
         var request = NetworkType.registerUser.request
         do{
@@ -77,9 +77,9 @@ class NetworkManager {
     }
     
     public func checkCode(code: String, phoneNumber: String, completion: @escaping (CheckAuthCode) -> Void) {
-        var params = ["phone": phoneNumber, "code": code]
+        let params = ["phone": phoneNumber, "code": code]
         
-        var request = NetworkType.registerUser.request
+        var request = NetworkType.code.request
         do{
             request.httpBody = try JSONSerialization.data(withJSONObject: params as Any, options: JSONSerialization.WritingOptions())
             let task = URLSession.shared.dataTask(with: request as URLRequest as URLRequest, completionHandler: {(data, response, error) in
@@ -99,9 +99,9 @@ class NetworkManager {
     }
     
     public func sendCode(phoneNumber: String, completion: @escaping (Code) -> Void) {
-        var params = ["phone": phoneNumber]
+        let params = ["phone": phoneNumber]
         
-        var request = NetworkType.registerUser.request
+        var request = NetworkType.sendCode.request
         do{
             request.httpBody = try JSONSerialization.data(withJSONObject: params as Any, options: JSONSerialization.WritingOptions())
             let task = URLSession.shared.dataTask(with: request as URLRequest as URLRequest, completionHandler: {(data, response, error) in

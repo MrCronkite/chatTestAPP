@@ -10,7 +10,6 @@ import UIKit
 final class LogInPageViewController: UIViewController{
     
     weak var coordinator: AppCoordinator?
-    var networ = NetworkManger()
     
     let textLable: UILabel = {
         let lable = UILabel()
@@ -82,12 +81,16 @@ final class LogInPageViewController: UIViewController{
     
     //MARK: - Action
     @objc func loginUser() {
-        networ.postPhoneCode(phoneNumber: textFieldPhoneNumber.text ?? "+79219999999")
+        NetworkManager.shared.sendCode(phoneNumber: textFieldPhoneNumber.text ?? "+3752222") { code in
+            print(code.isSuccess)
+        }
         let alertController = UIAlertController(title: "Enter a code", message: nil, preferredStyle: .alert)
         let confirmAction = UIAlertAction(title: "Add", style: .default) { [self] (_) in
             if let txtField = alertController.textFields?.first, let text = txtField.text {
-                networ.postCheckCode(phoneNumber: textFieldPhoneNumber.text ?? "+79219999999",
-                                     code: Int(text) ?? 133337)
+                NetworkManager.shared.checkCode(code: text, phoneNumber: textFieldPhoneNumber.text ?? "+3752222") { check in
+                    print(check.accessToken)
+                    
+                }
             }
         }
         alertController.addTextField { (textField) in
