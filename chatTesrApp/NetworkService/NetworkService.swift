@@ -98,6 +98,28 @@ class NetworkManager {
         }
     }
     
+    public func sendCode(phoneNumber: String, completion: @escaping (Code) -> Void) {
+        var params = ["phone": phoneNumber]
+        
+        var request = NetworkType.registerUser.request
+        do{
+            request.httpBody = try JSONSerialization.data(withJSONObject: params as Any, options: JSONSerialization.WritingOptions())
+            let task = URLSession.shared.dataTask(with: request as URLRequest as URLRequest, completionHandler: {(data, response, error) in
+                if let data = data {
+                    do{
+                        guard let jsonObject = try? JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions()) else { return }
+                        guard let jsonData = try? JSONSerialization.data(withJSONObject: jsonObject, options: .prettyPrinted) else { return }
+                        guard let jsonDecoded = try? JSONDecoder().decode(Code.self, from: jsonData) else { print("error 400"); return }
+                        completion(jsonDecoded)
+                    }
+                }
+            })
+            task.resume()
+        }catch _ {
+            print ("Oops something happened buddy")
+        }
+    }
+    
     
 }
 

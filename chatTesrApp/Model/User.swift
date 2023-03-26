@@ -63,6 +63,15 @@ struct RegistredUser: Codable {
     }
 }
 
+// MARK: - Code
+struct Code: Codable {
+    let isSuccess: Bool
+
+    enum CodingKeys: String, CodingKey {
+        case isSuccess = "is_success"
+    }
+}
+
 // MARK: - Token
 struct Token: Codable {
     let refreshToken, accessToken: String
