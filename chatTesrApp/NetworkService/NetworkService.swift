@@ -7,46 +7,66 @@
 
 import UIKit
 
-protocol NetworkProtocol {
-    func postPhoneCode(phoneNumber: String)
-    func postCheckCode(phoneNumber: String, code: Int)
-    func postRegister(phoneNumber: String, name: String, username: String)
+enum NetworkType {
+    case code
+    case registerUser
+    case sendCode
+    case getUser
+    case getToken
+    case putUserData
     
-    func getUserData()
-    func getTokenData()
-    
-    func putUserData()
-    
-}
-
-
-final class NetworkManger: NetworkProtocol {
-    public enum Urls {
-        static var checkAuthCode = "https://plannerok.ru/api/v1/users/check-auth-code/"
-        static var sendAuthCode = "https://plannerok.ru/api/v1/users/send-auth-code/"
-        static var register = "https://plannerok.ru/api/v1/users/register/"
-        static var getUser = "https://plannerok.ru/api/v1/users/me/"
-        static var getToken = "https://plannerok.ru/api/v1/users/refresh-token/"
-        static var putUserData = "https://plannerok.ru/api/v1/users/me/"
+    var baseUrl: String {
+        return "https://plannerok.ru/api/v1/users/"
     }
     
-    public func postPhoneCode(phoneNumber: String) {
-        let session = URLSession.shared
-        let url = Urls.sendAuthCode
-        let request = NSMutableURLRequest(url: NSURL(string: url)! as URL)
-        request.httpMethod = "POST"
+    var path: String {
+        switch self {
+        case .code: return "check-auth-code/"
+        case .registerUser: return "register/"
+        case .getToken: return "refresh-token/"
+        case .putUserData: return "me/"
+        case .getUser: return "me/"
+        case .sendCode: return "send-auth-code/"
+        }
+    }
+    
+    var request: URLRequest {
+        let url = URL(string: path, relativeTo: URL(string: baseUrl)!)!
+        var request = URLRequest(url: url)
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        var params :[String: Any]?
-        params = ["phone": phoneNumber]
+        switch self {
+        case .code:
+            request.httpMethod = "POST"
+            return request
+        case .registerUser:
+            request.httpMethod = "POST"
+            return request
+        case .sendCode:
+            request.httpMethod = "POST"
+            return request
+        default:
+            request.httpMethod = "GET"
+            return request
+        }
+    }
+}
+
+class NetworkManager {
+    static let shared = NetworkManager()
+    
+    public func restredUser(name: String, username: String, phoneNumber: String, completion: @escaping (RegistredUser) -> Void) {
+        var params = ["phone": phoneNumber, "name": name, "username": username]
+        
+        var request = NetworkType.registerUser.request
         do{
             request.httpBody = try JSONSerialization.data(withJSONObject: params as Any, options: JSONSerialization.WritingOptions())
-            let task = session.dataTask(with: request as URLRequest as URLRequest, completionHandler: {(data, response, error) in
+            let task = URLSession.shared.dataTask(with: request as URLRequest as URLRequest, completionHandler: {(data, response, error) in
                 if let data = data {
                     do{
-                        let jsonResponse = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions())
-                        print ("data = \(jsonResponse)")
-                    }catch _ {
-                        print ("OOps not good JSON formatted response")
+                        guard let jsonObject = try? JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions()) else { return }
+                        guard let jsonData = try? JSONSerialization.data(withJSONObject: jsonObject, options: .prettyPrinted) else { return }
+                        guard let jsonDecoded = try? JSONDecoder().decode(RegistredUser.self, from: jsonData) else { print("error 400"); return }
+                        completion(jsonDecoded)
                     }
                 }
             })
@@ -56,52 +76,19 @@ final class NetworkManger: NetworkProtocol {
         }
     }
     
-    public func postCheckCode(phoneNumber: String, code: Int) {
-        let session = URLSession.shared
-        let url = Urls.checkAuthCode
-        let request = NSMutableURLRequest(url: NSURL(string: url)! as URL)
-        request.httpMethod = "POST"
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        var params :[String: Any]?
-        params = ["phone": phoneNumber,
-                  "code": code]
+    public func checkCode(code: String, phoneNumber: String, completion: @escaping (CheckAuthCode) -> Void) {
+        var params = ["phone": phoneNumber, "code": code]
+        
+        var request = NetworkType.registerUser.request
         do{
             request.httpBody = try JSONSerialization.data(withJSONObject: params as Any, options: JSONSerialization.WritingOptions())
-            let task = session.dataTask(with: request as URLRequest as URLRequest, completionHandler: {(data, response, error) in
+            let task = URLSession.shared.dataTask(with: request as URLRequest as URLRequest, completionHandler: {(data, response, error) in
                 if let data = data {
                     do{
-                        let jsonResponse = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions())
-                        print ("data = \(jsonResponse)")
-                    }catch _ {
-                        print ("OOps not good JSON formatted response")
-                    }
-                }
-            })
-            task.resume()
-        }catch _ {
-            
-        }
-    }
-    
-    public func postRegister(phoneNumber: String, name: String, username: String) {
-        let session = URLSession.shared
-        let url = Urls.register
-        let request = NSMutableURLRequest(url: NSURL(string: url)! as URL)
-        request.httpMethod = "POST"
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        var params :[String: Any]?
-        params = [  "phone": phoneNumber,
-                    "name": name,
-                    "username": username]
-        do{
-            request.httpBody = try JSONSerialization.data(withJSONObject: params as Any, options: JSONSerialization.WritingOptions())
-            let task = session.dataTask(with: request as URLRequest as URLRequest, completionHandler: {(data, response, error) in
-                if let data = data {
-                    do{
-                        let jsonResponse = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions())
-                        print ("data = \(jsonResponse)")
-                    }catch _ {
-                        print ("OOps not good JSON formatted response")
+                        guard let jsonObject = try? JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions()) else { return }
+                        guard let jsonData = try? JSONSerialization.data(withJSONObject: jsonObject, options: .prettyPrinted) else { return }
+                        guard let jsonDecoded = try? JSONDecoder().decode(CheckAuthCode.self, from: jsonData) else { print("error 400"); return }
+                        completion(jsonDecoded)
                     }
                 }
             })
@@ -111,18 +98,8 @@ final class NetworkManger: NetworkProtocol {
         }
     }
     
-    public func getUserData() {
-        print("sdfsd")
-    }
-    
-    public func getTokenData() {
-        print("sdsd")
-    }
-    
-    public func putUserData() {
-        print("sdsd")
-    }
     
 }
+
 
 
