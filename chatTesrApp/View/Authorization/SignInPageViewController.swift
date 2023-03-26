@@ -128,9 +128,11 @@ final class SignInPageViewController: UIViewController{
                                               phoneNumber: textFieldPhoneNumber.text!) { user in
                 if (user.userID != 0) {
                     print(user.accessToken)
-//                    let tabBar = TabBarController()
-//                    tabBar.modalPresentationStyle = .fullScreen
-//                    self.present(tabBar, animated: true)
+                    DispatchQueue.main.async {
+                        let tabBar = TabBarController()
+                        tabBar.modalPresentationStyle = .fullScreen
+                        self.present(tabBar, animated: true)
+                    }
                 }
             }
         }
