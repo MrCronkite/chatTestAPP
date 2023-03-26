@@ -20,22 +20,22 @@ final class SignInPageViewController: UIViewController{
         return lable
     }()
     
-    let textFieldFirstName: UITextField = {
+    let textFieldName: UITextField = {
         let textField = UITextField()
         textField.textAlignment = .center
         textField.layer.cornerRadius = 15
         textField.backgroundColor = Resouces.Colors.textFieldColorbg
-        textField.attributedPlaceholder = NSAttributedString(string: "First name",
+        textField.attributedPlaceholder = NSAttributedString(string: "Name",
                                                              attributes: [.foregroundColor: Resouces.Colors.textFieldColorText])
         return textField
     }()
     
-    let textFieldLastName: UITextField = {
+    let textFieldUsername: UITextField = {
         let textField = UITextField()
         textField.textAlignment = .center
         textField.layer.cornerRadius = 15
         textField.backgroundColor = Resouces.Colors.textFieldColorbg
-        textField.attributedPlaceholder = NSAttributedString(string: "Last name",
+        textField.attributedPlaceholder = NSAttributedString(string: "Username",
                                                              attributes: [.foregroundColor: Resouces.Colors.textFieldColorText])
         return textField
     }()
@@ -112,21 +112,21 @@ final class SignInPageViewController: UIViewController{
     }
     
     @objc private func createUserAccount() {
-        if textFieldFirstName.text == "" {
-            textFieldFirstName.backgroundColor = .red.withAlphaComponent(0.4)
-        } else if textFieldLastName.text == "" {
-            textFieldFirstName.backgroundColor = Resouces.Colors.textFieldColorbg
-            textFieldLastName.backgroundColor = .red.withAlphaComponent(0.4)
+        if textFieldName.text == "" {
+            textFieldName.backgroundColor = .red.withAlphaComponent(0.4)
+        } else if textFieldUsername.text == "" {
+            textFieldName.backgroundColor = Resouces.Colors.textFieldColorbg
+            textFieldUsername.backgroundColor = .red.withAlphaComponent(0.4)
         } else if textFieldPhoneNumber.text == "" {
-            textFieldLastName.backgroundColor = Resouces.Colors.textFieldColorbg
+            textFieldUsername.backgroundColor = Resouces.Colors.textFieldColorbg
             textFieldPhoneNumber.backgroundColor = .red.withAlphaComponent(0.4)
         } else {
-            textFieldFirstName.backgroundColor = Resouces.Colors.textFieldColorbg
-            textFieldLastName.backgroundColor = Resouces.Colors.textFieldColorbg
+            textFieldName.backgroundColor = Resouces.Colors.textFieldColorbg
+            textFieldUsername.backgroundColor = Resouces.Colors.textFieldColorbg
             textFieldPhoneNumber.backgroundColor = Resouces.Colors.textFieldColorbg
-            network.postRegister(phoneNumber: "+37522",
-                                 name: "vlad",
-                                 username: "Vlad23")
+            network.postRegister(phoneNumber: textFieldPhoneNumber.text!,
+                                 name: textFieldName.text!,
+                                 username: textFieldUsername.text!)
             let tabBar = TabBarController()
             tabBar.modalPresentationStyle = .fullScreen
             present(tabBar, animated: true)
@@ -145,8 +145,8 @@ final class SignInPageViewController: UIViewController{
     //MARK: - Configure
     private func configure() {
         [textLable,
-         textFieldFirstName,
-         textFieldLastName,
+         textFieldName,
+         textFieldUsername,
          textFieldPhoneNumber,
          buttonSignIn,
          lableSubText,
@@ -161,19 +161,19 @@ final class SignInPageViewController: UIViewController{
             textLable.topAnchor.constraint(equalTo: view.topAnchor, constant: 156),
             textLable.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
-            textFieldFirstName.widthAnchor.constraint(equalToConstant: 290),
-            textFieldFirstName.heightAnchor.constraint(equalToConstant: 30),
-            textFieldFirstName.topAnchor.constraint(equalTo: textLable.bottomAnchor, constant: 77),
-            textFieldFirstName.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            textFieldName.widthAnchor.constraint(equalToConstant: 290),
+            textFieldName.heightAnchor.constraint(equalToConstant: 30),
+            textFieldName.topAnchor.constraint(equalTo: textLable.bottomAnchor, constant: 77),
+            textFieldName.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
-            textFieldLastName.widthAnchor.constraint(equalToConstant: 290),
-            textFieldLastName.heightAnchor.constraint(equalToConstant: 30),
-            textFieldLastName.topAnchor.constraint(equalTo: textFieldFirstName.bottomAnchor, constant: 35),
-            textFieldLastName.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            textFieldUsername.widthAnchor.constraint(equalToConstant: 290),
+            textFieldUsername.heightAnchor.constraint(equalToConstant: 30),
+            textFieldUsername.topAnchor.constraint(equalTo: textFieldName.bottomAnchor, constant: 35),
+            textFieldUsername.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
             textFieldPhoneNumber.widthAnchor.constraint(equalToConstant: 290),
             textFieldPhoneNumber.heightAnchor.constraint(equalToConstant: 30),
-            textFieldPhoneNumber.topAnchor.constraint(equalTo: textFieldLastName.bottomAnchor, constant: 35),
+            textFieldPhoneNumber.topAnchor.constraint(equalTo: textFieldUsername.bottomAnchor, constant: 35),
             textFieldPhoneNumber.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
             buttonSignIn.widthAnchor.constraint(equalToConstant: 290),
