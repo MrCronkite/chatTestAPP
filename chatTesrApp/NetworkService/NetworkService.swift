@@ -44,8 +44,16 @@ enum NetworkType {
         case .sendCode:
             request.httpMethod = "POST"
             return request
-        default:
+        case .getToken:
+            request.httpMethod = "POST"
+            return request
+        case .getUser:
             request.httpMethod = "GET"
+            request.addValue("Bearer \(12312)", forHTTPHeaderField: "Authorization")
+            return request
+        case .putUserData:
+            request.httpMethod = "PUT"
+            request.addValue("Bearer \(12312)", forHTTPHeaderField: "Authorization")
             return request
         }
     }
@@ -122,6 +130,49 @@ class NetworkManager {
             print ("Oops something happened buddy")
         }
     }
+    
+    public func getToken() {
+        let params = ["refresh_token": "123"]
+        
+        var request = NetworkType.getToken.request
+        do{
+            request.httpBody = try JSONSerialization.data(withJSONObject: params as Any, options: JSONSerialization.WritingOptions())
+            request.httpBody = try JSONSerialization.data(withJSONObject: params as Any, options: JSONSerialization.WritingOptions())
+            let task = URLSession.shared.dataTask(with: request as URLRequest as URLRequest, completionHandler: {(data, response, error) in
+                if let data = data {
+                    do{
+                        guard let jsonObject = try? JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions()) else { return }
+                        guard let jsonData = try? JSONSerialization.data(withJSONObject: jsonObject, options: .prettyPrinted) else { return }
+                        guard let jsonDecoded = try? JSONDecoder().decode(Token.self, from: jsonData) else { print("401"); return }
+                        print(jsonDecoded.accessToken)
+                    }
+                }
+            })
+            task.resume()
+        }catch _ {
+            print ("Oops something happened buddy")
+        }
+    }
+    
+    public func getUserData(completion: @escaping (User) -> Void) {
+        var request = NetworkType.getUser.request
+        do{
+            let task = URLSession.shared.dataTask(with: request as URLRequest as URLRequest, completionHandler: {(data, response, error) in
+                if let data = data {
+                    do{
+                        guard let jsonObject = try? JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions()) else { return }
+                        guard let jsonData = try? JSONSerialization.data(withJSONObject: jsonObject, options: .prettyPrinted) else { return }
+                        guard let jsonDecoded = try? JSONDecoder().decode(User.self, from: jsonData) else {
+                            self.getToken()
+                            return }
+                        completion(jsonDecoded)
+                    }
+                }
+            })
+            task.resume()
+        }
+    }
+    
     
     
 }
