@@ -62,7 +62,7 @@ enum NetworkType {
 class NetworkManager {
     static let shared = NetworkManager()
     
-    public func restredUser(name: String, username: String, phoneNumber: String, completion: @escaping (RegistredUser) -> Void) {
+    public func registredUser(name: String, username: String, phoneNumber: String, completion: @escaping (RegistredUser) -> Void) {
         let params = ["phone": phoneNumber, "name": name, "username": username]
         
         var request = NetworkType.registerUser.request
@@ -73,7 +73,9 @@ class NetworkManager {
                     do{
                         guard let jsonObject = try? JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions()) else { return }
                         guard let jsonData = try? JSONSerialization.data(withJSONObject: jsonObject, options: .prettyPrinted) else { return }
-                        guard let jsonDecoded = try? JSONDecoder().decode(RegistredUser.self, from: jsonData) else { print("error 400"); return }
+                        guard let jsonDecoded = try? JSONDecoder().decode(RegistredUser.self, from: jsonData) else {
+                            completion(RegistredUser.init(refreshToken: "", accessToken: "", userID: 0))
+                            return }
                         completion(jsonDecoded)
                     }
                 }
@@ -155,7 +157,7 @@ class NetworkManager {
     }
     
     public func getUserData(completion: @escaping (User) -> Void) {
-        var request = NetworkType.getUser.request
+        let request = NetworkType.getUser.request
         do{
             let task = URLSession.shared.dataTask(with: request as URLRequest as URLRequest, completionHandler: {(data, response, error) in
                 if let data = data {

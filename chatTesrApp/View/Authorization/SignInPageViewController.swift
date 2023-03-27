@@ -123,14 +123,18 @@ final class SignInPageViewController: UIViewController{
             textFieldName.backgroundColor = Resouces.Colors.textFieldColorbg
             textFieldUsername.backgroundColor = Resouces.Colors.textFieldColorbg
             textFieldPhoneNumber.backgroundColor = Resouces.Colors.textFieldColorbg
-            NetworkManager.shared.restredUser(name: textFieldName.text!,
-                                              username: textFieldUsername.text!,
-                                              phoneNumber: textFieldPhoneNumber.text!) { user in
-                if (user.userID != 0) {
+            NetworkManager.shared.registredUser(name: textFieldName.text!,
+                                                username: textFieldUsername.text!,
+                                                phoneNumber: textFieldPhoneNumber.text!) { [self] user in
+                if (user.refreshToken != "") {
                     DispatchQueue.main.async {
                         let tabBar = TabBarController()
                         tabBar.modalPresentationStyle = .fullScreen
                         self.present(tabBar, animated: true)
+                    }
+                } else {
+                    DispatchQueue.main.async {
+                        self.alertMessage(title: "Oops", message: "User with this username already exists")
                     }
                 }
             }
