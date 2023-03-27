@@ -26,6 +26,7 @@
 		B2791EEA29CCCCC100C9146A /* UIFontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2791EE929CCCCC100C9146A /* UIFontExtension.swift */; };
 		B2A383A129CCED9A00E7FF43 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A383A029CCED9A00E7FF43 /* TabBarController.swift */; };
 		B2A383A329CCF41300E7FF43 /* NavBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A383A229CCF41300E7FF43 /* NavBarController.swift */; };
+		B2F1DBAD29D20B1B00CC3353 /* AuthorizationToken+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F1DBAB29D20B1B00CC3353 /* AuthorizationToken+CoreDataProperties.swift */; };
 		B2FB041529CF6CD30047D539 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FB041429CF6CD30047D539 /* NetworkService.swift */; };
 		B2FB041729CF89600047D539 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FB041629CF89600047D539 /* User.swift */; };
 /* End PBXBuildFile section */
@@ -55,6 +56,7 @@
 		B2791EE929CCCCC100C9146A /* UIFontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFontExtension.swift; sourceTree = "<group>"; };
 		B2A383A029CCED9A00E7FF43 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		B2A383A229CCF41300E7FF43 /* NavBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavBarController.swift; sourceTree = "<group>"; };
+		B2F1DBAB29D20B1B00CC3353 /* AuthorizationToken+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthorizationToken+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B2FB041429CF6CD30047D539 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		B2FB041629CF89600047D539 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -147,6 +149,7 @@
 		B229D51D29CCB196003E11B9 /* Storage */ = {
 			isa = PBXGroup;
 			children = (
+				B2F1DBAB29D20B1B00CC3353 /* AuthorizationToken+CoreDataProperties.swift */,
 				B229D50529CCAE94003E11B9 /* chatTesrApp.xcdatamodeld */,
 				B229D51E29CCB1CF003E11B9 /* StorageManager.swift */,
 			);
@@ -309,6 +312,7 @@
 				B229D51F29CCB1CF003E11B9 /* StorageManager.swift in Sources */,
 				B229D4FD29CCAE94003E11B9 /* AppDelegate.swift in Sources */,
 				B229D52B29CCB695003E11B9 /* SignInPageViewController.swift in Sources */,
+				B2F1DBAD29D20B1B00CC3353 /* AuthorizationToken+CoreDataProperties.swift in Sources */,
 				B2A383A329CCF41300E7FF43 /* NavBarController.swift in Sources */,
 				B2791EEA29CCCCC100C9146A /* UIFontExtension.swift in Sources */,
 				B229D52929CCB644003E11B9 /* LogInPageViewController.swift in Sources */,

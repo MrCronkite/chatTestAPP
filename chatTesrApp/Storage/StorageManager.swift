@@ -27,56 +27,54 @@ public final class CoreDataManager: NSObject {
         }
     }
     
-    public func createUser(_ firstName: String, lastName: String) {
-        guard let userEntityDescription = NSEntityDescription.entity(forEntityName: "User", in: context) else { return }
-        //let user = User(entity: userEntityDescription, insertInto: context)
-//        user.firstName = firstName
-//        user.lastName = lastName
+    public func createToken(_ refreshToken: String, accessToken: String) {
+        guard let tokenEntityDescription = NSEntityDescription.entity(forEntityName: "AuthorizationToken", in: context) else { return }
+        let token = AuthorizationToken(entity: tokenEntityDescription, insertInto: context)
+        token.refreshToken = refreshToken
+        token.accessToken = accessToken
         
         appDelegate.saveContext()
     }
     
-    public func fetchUsers() -> [AnyObject] {
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
-        do { return (try? context.fetch(fetchRequest) as? [AnyObject]) ?? [] }
+    public func fetchTokens() -> [AnyObject] {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "AuthorizationToken")
+        do { return (try? context.fetch(fetchRequest) as? [AuthorizationToken]) ?? [] }
     }
     
-//    public func fetchUser(_ email: String) -> AnyObject? {
-//        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
-//        do {
-//            let users = try? context.fetch(fetchRequest) as? [AnyObject]
-//            return users?.first(where: { $0.email == email }) 
-//        }
-//    }
-    
-    public func updataUser(with firstName: String, lastName: String, email: String, password: String ) {
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
+    public func fetchToken(_ refreshToken: String) -> AnyObject? {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "AuthorizationToken")
         do {
-           // guard let users = try? context.fetch(fetchRequest) as? [AnyObject],
-//        let user = users.first(where: {$0.email == email}) else { return }
-//            user.lastName = lastName
-//            user.firstName = firstName
+            let token = try? context.fetch(fetchRequest) as? [AuthorizationToken]
+            return token?.first(where: { $0.refreshToken == refreshToken })
         }
-        
+    }
+    
+    public func updataToken(with refreshToken: String, accessToken: String) {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "AuthorizationToken")
+        do {
+           guard let tokens = try? context.fetch(fetchRequest) as? [AuthorizationToken],
+                 let token = tokens.first(where: {$0.refreshToken == refreshToken}) else { return }
+            token.accessToken = accessToken
+        }
         appDelegate.saveContext()
     }
     
-    public func deletAllUsers() {
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
+    public func deletAllTokens() {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "AuthorizationToken")
         do {
-            let users = try? context.fetch(fetchRequest) as? [AnyObject]
-           // users?.forEach { context.delete($0) }
+            let token = try? context.fetch(fetchRequest) as? [AuthorizationToken]
+            token?.forEach { context.delete($0) }
         }
         
         appDelegate.saveContext()
     }
 
-    public func deletUser(with email: String) {
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
+    public func deletUser(with refreshToken: String) {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "AuthorizationToken")
         do {
-         //  guard let users = try? context.fetch(fetchRequest) as? [AnyObject],
-         //        let user = users.first(where: {$0.email == email}) else { return }
-         //   context.delete(user)
+           guard let tokens = try? context.fetch(fetchRequest) as? [AuthorizationToken],
+                 let token = tokens.first(where: {$0.refreshToken == refreshToken}) else { return }
+            context.delete(token)
         }
         
         appDelegate.saveContext()
