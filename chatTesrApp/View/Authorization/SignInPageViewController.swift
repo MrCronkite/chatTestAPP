@@ -127,7 +127,6 @@ final class SignInPageViewController: UIViewController{
                                               username: textFieldUsername.text!,
                                               phoneNumber: textFieldPhoneNumber.text!) { user in
                 if (user.userID != 0) {
-                    print(user.accessToken)
                     DispatchQueue.main.async {
                         let tabBar = TabBarController()
                         tabBar.modalPresentationStyle = .fullScreen

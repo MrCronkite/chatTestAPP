@@ -87,7 +87,10 @@ class NetworkManager {
                     do{
                         guard let jsonObject = try? JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions()) else { return }
                         guard let jsonData = try? JSONSerialization.data(withJSONObject: jsonObject, options: .prettyPrinted) else { return }
-                        guard let jsonDecoded = try? JSONDecoder().decode(CheckAuthCode.self, from: jsonData) else { print("error 400"); return }
+                        guard let jsonDecoded = try? JSONDecoder().decode(CheckAuthCode.self, from: jsonData) else {
+                            completion(CheckAuthCode.init(refreshToken: "", accessToken: "", userID: 0, isUserExists: false))
+                            return
+                        }
                         completion(jsonDecoded)
                     }
                 }

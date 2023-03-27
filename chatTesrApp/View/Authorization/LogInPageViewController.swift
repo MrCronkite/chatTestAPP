@@ -88,8 +88,17 @@ final class LogInPageViewController: UIViewController{
         let confirmAction = UIAlertAction(title: "Add", style: .default) { [self] (_) in
             if let txtField = alertController.textFields?.first, let text = txtField.text {
                 NetworkManager.shared.checkCode(code: text, phoneNumber: textFieldPhoneNumber.text ?? "+3752222") { check in
-                    print(check.accessToken)
-                    
+                    if check.isUserExists {
+                        DispatchQueue.main.async {
+                            let tabBar = TabBarController()
+                            tabBar.modalPresentationStyle = .fullScreen
+                            self.present(tabBar, animated: true)
+                        }
+                    } else {
+                        DispatchQueue.main.async {
+                            self.navigationController?.popToRootViewController(animated: true)
+                        }
+                    }
                 }
             }
         }
