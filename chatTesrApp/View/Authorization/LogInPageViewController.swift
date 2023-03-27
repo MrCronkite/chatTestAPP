@@ -79,7 +79,7 @@ final class LogInPageViewController: UIViewController{
         })
     }
     
-    //MARK: - Action
+    //MARK: - Action refreshToken = "69d83db7-b2d5-4637-9cb6-ed6bf420491b";
     @objc func loginUser() {
         NetworkManager.shared.sendCode(phoneNumber: textFieldPhoneNumber.text ?? "+3752222") { code in
             print(code.isSuccess)
@@ -89,7 +89,8 @@ final class LogInPageViewController: UIViewController{
             if let txtField = alertController.textFields?.first, let text = txtField.text {
                 NetworkManager.shared.checkCode(code: text, phoneNumber: textFieldPhoneNumber.text ?? "+3752222") { check in
                     if check.isUserExists {
-                        DispatchQueue.main.async {
+                        DispatchQueue.main.async { [self] in
+                            print(CoreDataManager.shared.fetchToken(textFieldPhoneNumber.text!) as Any)
                             let tabBar = TabBarController()
                             tabBar.modalPresentationStyle = .fullScreen
                             self.present(tabBar, animated: true)

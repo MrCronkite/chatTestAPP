@@ -17,6 +17,7 @@ public class AuthorizationToken: NSManagedObject {
 extension AuthorizationToken {
     @NSManaged public var accessToken: String?
     @NSManaged public var refreshToken: String?
+    @NSManaged public var phoneNumber: String?
 }
 
 extension AuthorizationToken : Identifiable {}

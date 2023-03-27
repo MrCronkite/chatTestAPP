@@ -2,6 +2,7 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21512" systemVersion="22C65" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
     <entity name="AuthorizationToken" representedClassName="AuthorizationToken" syncable="YES">
         <attribute name="accessToken" optional="YES" attributeType="String"/>
+        <attribute name="phoneNumber" optional="YES" attributeType="String"/>
         <attribute name="refreshToken" optional="YES" attributeType="String"/>
     </entity>
 </model>

@@ -21,17 +21,12 @@ public final class CoreDataManager: NSObject {
         appDelegate.persistentContainer.viewContext
     }
     
-    public func logCD(){
-        if let url = appDelegate.persistentContainer.persistentStoreCoordinator.persistentStores.first?.url {
-            print("db url - \(url)")
-        }
-    }
-    
-    public func createToken(_ refreshToken: String, accessToken: String) {
+    public func createToken(_ refreshToken: String, accessToken: String, phoneNumber: String) {
         guard let tokenEntityDescription = NSEntityDescription.entity(forEntityName: "AuthorizationToken", in: context) else { return }
         let token = AuthorizationToken(entity: tokenEntityDescription, insertInto: context)
         token.refreshToken = refreshToken
         token.accessToken = accessToken
+        token.phoneNumber = phoneNumber
         
         appDelegate.saveContext()
     }
@@ -41,11 +36,11 @@ public final class CoreDataManager: NSObject {
         do { return (try? context.fetch(fetchRequest) as? [AuthorizationToken]) ?? [] }
     }
     
-    public func fetchToken(_ refreshToken: String) -> AnyObject? {
+    public func fetchToken(_ phoneNumber: String) -> AnyObject {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "AuthorizationToken")
         do {
             let token = try? context.fetch(fetchRequest) as? [AuthorizationToken]
-            return token?.first(where: { $0.refreshToken == refreshToken })
+            return token?.first(where: { $0.phoneNumber == phoneNumber })!.accessToken as AnyObject
         }
     }
     
@@ -69,7 +64,7 @@ public final class CoreDataManager: NSObject {
         appDelegate.saveContext()
     }
 
-    public func deletUser(with refreshToken: String) {
+    public func deletToken(with refreshToken: String) {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "AuthorizationToken")
         do {
            guard let tokens = try? context.fetch(fetchRequest) as? [AuthorizationToken],

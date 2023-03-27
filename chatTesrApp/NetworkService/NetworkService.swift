@@ -19,6 +19,12 @@ enum NetworkType {
         return "https://plannerok.ru/api/v1/users/"
     }
     
+    var accesToken: String{
+        let token = CoreDataManager.shared.fetchToken("888899") as! String
+        print(token)
+        return token
+    }
+    
     var path: String {
         switch self {
         case .code: return "check-auth-code/"
@@ -33,27 +39,30 @@ enum NetworkType {
     var request: URLRequest {
         let url = URL(string: path, relativeTo: URL(string: baseUrl)!)!
         var request = URLRequest(url: url)
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         switch self {
         case .code:
             request.httpMethod = "POST"
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
             return request
         case .registerUser:
             request.httpMethod = "POST"
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
             return request
         case .sendCode:
             request.httpMethod = "POST"
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
             return request
         case .getToken:
             request.httpMethod = "POST"
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
             return request
         case .getUser:
             request.httpMethod = "GET"
-            request.addValue("Bearer \(12312)", forHTTPHeaderField: "Authorization")
+            request.addValue("Bearer \(accesToken)", forHTTPHeaderField: "Authorization")
             return request
         case .putUserData:
             request.httpMethod = "PUT"
-            request.addValue("Bearer \(12312)", forHTTPHeaderField: "Authorization")
+            request.addValue("Bearer \(accesToken)", forHTTPHeaderField: "Authorization")
             return request
         }
     }

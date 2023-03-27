@@ -73,6 +73,8 @@ final class MainProfileViewController: UIViewController{
         view.backgroundColor = .white
         title = "Profile"
         
+        buttonChangeData.addTarget(self, action: #selector(getData), for: .touchUpInside)
+        
         configureAppearance()
     }
     
@@ -80,6 +82,11 @@ final class MainProfileViewController: UIViewController{
         fatalError("init(coder:) has not been implemented")
     }
     
+    @objc private func getData() {
+        NetworkManager().getUserData { user in
+            print("wot \(user)")
+        }
+    }
     //MARK: - Configure
     private func configureAppearance() {
         [imageAvatarView,

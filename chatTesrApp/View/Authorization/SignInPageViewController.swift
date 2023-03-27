@@ -127,7 +127,8 @@ final class SignInPageViewController: UIViewController{
                                                 username: textFieldUsername.text!,
                                                 phoneNumber: textFieldPhoneNumber.text!) { [self] user in
                 if (user.refreshToken != "") {
-                    DispatchQueue.main.async {
+                    DispatchQueue.main.async { [self] in
+                        CoreDataManager.shared.createToken(user.refreshToken, accessToken: user.accessToken, phoneNumber: self.textFieldPhoneNumber.text!)
                         let tabBar = TabBarController()
                         tabBar.modalPresentationStyle = .fullScreen
                         self.present(tabBar, animated: true)
